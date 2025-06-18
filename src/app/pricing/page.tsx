@@ -2,7 +2,6 @@
 
 import { Header } from "@/components/layout/Header";
 import { Pricing } from "@/components/sections/Pricing";
-import { ContactForm } from "@/components/sections/ContactForm";
 
 export default function PricingPage() {
   return (

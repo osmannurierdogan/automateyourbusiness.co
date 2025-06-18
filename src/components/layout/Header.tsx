@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Calendar, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 
 const navigation = [
   { name: "Ana Sayfa", href: "/" },
