@@ -5,11 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CaseStudies } from "@/components/sections/CaseStudies";
-import { Pricing } from "@/components/sections/Pricing";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 
 const products = [
@@ -72,7 +70,6 @@ const products = [
 ];
 
 export default function Home() {
-  const router = useRouter();
   const [loading, setLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
