@@ -69,12 +69,13 @@ const products = [
 ];
 
 export default function Home() {
-  const [loading, setLoading] = useState<string | null>(null);
+  // const [loading, setLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handlePurchase = async (productId: string) => {
     try {
-      setLoading(productId);
+
+      // setLoading(productId);
       setError(null);
 
       // Stripe yüklemesini kontrol et
@@ -125,7 +126,7 @@ export default function Home() {
       console.error("Error:", err);
       setError(err instanceof Error ? err.message : "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
     } finally {
-      setLoading(null);
+      // setLoading(null);
     }
   };
 
