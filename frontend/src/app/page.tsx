@@ -5,7 +5,6 @@ import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CaseStudies } from "@/components/sections/CaseStudies";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
