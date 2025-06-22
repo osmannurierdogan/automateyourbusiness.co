@@ -131,13 +131,18 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className="min-h-screen relative">
+      {/* Background gradient */}
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-slate-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-blue-100 dark:from-slate-800 dark:via-slate-950 dark:to-slate-800 opacity-80" />
+      </div>
+
       <Header />
-      <Hero />
-      <CaseStudies />
-      <Testimonials />
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-12">
+        <Hero />
+        <CaseStudies />
+        <Testimonials />
+        <section className="py-24">
           <h2 className="text-4xl font-bold text-center mb-4">Hazır Sistemler</h2>
           <p className="text-center text-muted-foreground mb-12">
             İşinizi otomatikleştirmek için hazır sistemlerimizi inceleyin
@@ -149,68 +154,40 @@ export default function Home() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {products.slice(0, 4).map((product) => (
-              <Card key={product.id} className="p-6 flex flex-col">
-                <h2 className="text-xl font-bold mb-2">{product.name}</h2>
-                <p className="text-muted-foreground mb-4 flex-grow">{product.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-2 text-sm">
-                      <svg
-                        className="w-4 h-4 text-green-500 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <span className="text-lg text-muted-foreground line-through">${product.comparePrice}</span>
-                  <span className="text-2xl font-bold text-primary">${product.price}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="flex flex-col p-6 bg-card rounded-lg border"
+              >
+                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                <p className="text-muted-foreground mb-4">{product.description}</p>
+                <div className="mt-auto space-y-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold">${product.price}</span>
+                    <span className="text-muted-foreground line-through">
+                      ${product.comparePrice}
+                    </span>
+                  </div>
+                  <Button
+                    className="w-full"
+                    onClick={() => handlePurchase(product.id)}
+                  >
+                    Satın Al
+                  </Button>
                 </div>
-                <Button
-                  onClick={() => handlePurchase(product.id)}
-                  disabled={loading === product.id}
-                  className="w-full"
-                >
-                  {loading === product.id ? "İşleniyor..." : "Satın Al"}
-                </Button>
-              </Card>
+              </div>
             ))}
           </div>
-
-          <div className="text-center">
-            <Link href="/tools" className="inline-block">
+          <div className="text-center mt-12">
+            <Link href="/tools">
               <Button size="lg" variant="outline">
-                Tüm Sistemleri İncele
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                Tüm Sistemleri Görüntüle
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   );
 }

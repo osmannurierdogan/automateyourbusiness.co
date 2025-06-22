@@ -94,8 +94,7 @@ export default function Solutions() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-
-      <section className="container px-4 py-24 mx-auto mt-12">
+      <section className="container px-4 py-12 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

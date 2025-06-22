@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { loadStripe } from "@stripe/stripe-js";
 import { Header } from "@/components/layout/Header";
+import { motion } from "framer-motion";
 
 const products = [
   {
@@ -129,11 +130,20 @@ export default function ToolsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <div className="container mx-auto px-4 py-24">
-        <h1 className="text-4xl font-bold text-center mb-4">Hazır Sistemler</h1>
-        <p className="text-center text-muted-foreground mb-12">
-          İşinizi otomatikleştirmek için hazır sistemlerimizi inceleyin
-        </p>
+      <div className="container mx-auto px-4 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+            Hazır Sistemler
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            İşinizi otomatikleştirmek için hazır sistemlerimizi inceleyin
+          </p>
+        </motion.div>
 
         {error && (
           <div className="mb-8 p-4 bg-red-50 text-red-600 rounded-md">
