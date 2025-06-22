@@ -798,7 +798,7 @@ function ToolsPage() {
                 throw new Error("Stripe yüklenemedi. Lütfen daha sonra tekrar deneyin.");
             }
             // API isteği
-            const response = await fetch(`${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/api/stripe`, {
+            const response = await fetch(`${("TURBOPACK compile-time value", "https://automateyourbusiness.up.railway.app") || 'http://localhost:3001'}/api/stripe`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

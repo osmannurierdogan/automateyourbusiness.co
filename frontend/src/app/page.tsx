@@ -8,6 +8,7 @@ import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
+import { Card } from "@/components/ui/card";
 
 const products = [
   {
@@ -142,7 +143,7 @@ export default function Home() {
         <Hero />
         <CaseStudies />
         <Testimonials />
-        <section className="py-24">
+        <section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-4">Hazır Sistemler</h2>
           <p className="text-center text-muted-foreground mb-12">
             İşinizi otomatikleştirmek için hazır sistemlerimizi inceleyin
@@ -156,27 +157,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => (
-              <div
-                key={product.id}
-                className="flex flex-col p-6 bg-card rounded-lg border"
-              >
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                <p className="text-muted-foreground mb-4">{product.description}</p>
-                <div className="mt-auto space-y-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold">${product.price}</span>
-                    <span className="text-muted-foreground line-through">
-                      ${product.comparePrice}
-                    </span>
-                  </div>
-                  <Button
-                    className="w-full"
-                    onClick={() => handlePurchase(product.id)}
-                  >
-                    Satın Al
-                  </Button>
+              <Card key={product.id} className="p-6 flex flex-col">
+                <h2 className="text-xl font-bold mb-2">{product.name}</h2>
+                <p className="text-muted-foreground mb-4 flex-grow">{product.description}</p>
+                <ul className="space-y-2 mb-6">
+                  {product.features.map((feature, index) => (
+                    <li key={index} className="flex items-center gap-2 text-sm">
+                      <svg
+                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <span className="text-lg text-muted-foreground line-through">${product.comparePrice}</span>
+                  <span className="text-2xl font-bold text-primary">${product.price}</span>
                 </div>
-              </div>
+                <Button
+                  onClick={() => handlePurchase(product.id)}
+                  className="w-full"
+                >
+                  Satın Al
+                </Button>
+              </Card>
             ))}
           </div>
           <div className="text-center mt-12">
