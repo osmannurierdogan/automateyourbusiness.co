@@ -117,12 +117,18 @@ export function Header() {
                     >
                       {footerContact.email}
                     </a>
-                    <a
-                      href={`tel:${footerContact.phone}`}
-                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {footerContact.phone}
-                    </a>
+                      <a
+                        href={`tel:${footerContact.phoneTR}`}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {footerContact.phoneTR}
+                      </a>
+                      <a
+                        href={`tel:${footerContact.phoneUS}`}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {footerContact.phoneUS}
+                      </a>
                     <p className="text-sm text-muted-foreground">
                       {footerContact.address}
                     </p>
