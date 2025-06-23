@@ -18,7 +18,8 @@ export interface FooterSection {
 
 export interface FooterContact {
   email: string;
-  phone: string;
+  phoneTR: string;
+  phoneUS: string;
   address: string;
   socialLinks: {
     platform: string;
