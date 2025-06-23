@@ -6,30 +6,26 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-
-const navigation = [
-  { name: "Ana Sayfa", href: "/" },
-  { name: "Çözümler", href: "/solutions" },
-  { name: "Hazır Sistemler", href: "/tools" },
-  { name: "İletişim", href: "/contact" },
-];
-
-const buttonClassNames = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3";
+import { useNavigationStore } from "@/lib/store/navigation";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const mainNav = useNavigationStore((state) => state.mainNav);
+  const footerContact = useNavigationStore((state) => state.footerContact);
+
+  const buttonClassNames = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 py-4">
-          <Image 
-            src="/images/logo.png" 
-            alt="Automate Your Business" 
-            width={150} 
-            height={100} 
+          <Image
+            src="/images/logo.png"
+            alt="Automate Your Business"
+            width={150}
+            height={100}
             priority
-            style={{ 
+            style={{
               objectFit: 'contain',
               filter: 'brightness(0)'
             }}
@@ -39,13 +35,13 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
-          {navigation.map((item) => (
+          {mainNav.map((item) => (
             <Link
-              key={item.name}
+              key={item.title}
               href={item.href}
-              className={item.name === "Ücretsiz Danışmanlık" ? buttonClassNames : "text-muted-foreground hover:text-primary transition-colors"}
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
-              {item.name}
+              {item.title}
             </Link>
           ))}
           <a
@@ -69,14 +65,14 @@ export function Header() {
             <div className="flex flex-col h-full px-6 py-6">
               {/* Navigation Links */}
               <nav className="flex flex-col gap-6 mb-8">
-                {navigation.map((item) => (
+                {mainNav.map((item) => (
                   <Link
-                    key={item.name}
+                    key={item.title}
                     href={item.href}
                     className="text-base text-muted-foreground hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.name}
+                    {item.title}
                   </Link>
                 ))}
                 <a
@@ -94,13 +90,13 @@ export function Header() {
               <div className="mt-auto border-t pt-8 space-y-8">
                 {/* Logo ve Slogan */}
                 <div>
-                  <Image 
-                    src="/images/logo.png" 
-                    alt="Automate Your Business" 
-                    width={140} 
-                    height={80} 
+                  <Image
+                    src="/images/logo.png"
+                    alt="Automate Your Business"
+                    width={140}
+                    height={80}
                     priority
-                    style={{ 
+                    style={{
                       objectFit: 'contain',
                       filter: 'brightness(0)'
                     }}
@@ -116,25 +112,19 @@ export function Header() {
                   <h3 className="font-semibold">İletişim</h3>
                   <div className="space-y-2">
                     <a
-                      href="mailto:info@automateyourbusiness.co"
+                      href={`mailto:${footerContact.email}`}
                       className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      info@automateyourbusiness.co
+                      {footerContact.email}
                     </a>
                     <a
-                      href="tel:+905451224170"
+                      href={`tel:${footerContact.phone}`}
                       className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      Tel (TR): +90 545 122 41 70
-                    </a>
-                    <a
-                      href="tel:+12135799208"
-                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      Tel (US): +1 213 579 9208
+                      {footerContact.phone}
                     </a>
                     <p className="text-sm text-muted-foreground">
-                      7901 4th St N Ste 300, St. Petersburg, Florida, USA 33702
+                      {footerContact.address}
                     </p>
                   </div>
                 </div>

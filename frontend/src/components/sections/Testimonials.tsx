@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
+import { useTestimonialStore } from "@/lib/store/testimonials";
 
 import {
   Carousel,
@@ -13,55 +14,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const testimonials = [
-  {
-    name: "Ahmet Yılmaz",
-    role: "CEO, TechCorp",
-    content:
-      "AI otomasyon çözümleri sayesinde operasyonel maliyetlerimizi %40 azalttık. Müşteri memnuniyetimiz de ciddi oranda arttı.",
-    company: "TechCorp",
-  },
-  {
-    name: "Ayşe Kaya",
-    role: "CTO, E-Commerce Plus",
-    content:
-      "Automate Your Business ile e-ticaret süreçlerimizi otomatikleştirdik. Stok yönetimi ve müşteri hizmetleri artık çok daha verimli.",
-    company: "E-Commerce Plus",
-  },
-  {
-    name: "Mehmet Demir",
-    role: "Operasyon Müdürü, LogiTech",
-    content:
-      "Lojistik operasyonlarımızda AI kullanmaya başladığımızdan beri teslimat sürelerimiz %30 kısaldı ve müşteri şikayetleri azaldı.",
-    company: "LogiTech",
-  },
-  {
-    name: "Zeynep Arslan",
-    role: "Pazarlama Direktörü, DigitalMax",
-    content:
-      "Müşteri verilerinin analizi ve otomatik pazarlama kampanyaları sayesinde dönüşüm oranlarımız %50'nin üzerine çıktı.",
-    company: "DigitalMax",
-  },
-  {
-    name: "Can Özkan",
-    role: "Finans Müdürü, FinTech Solutions",
-    content:
-      "Finansal süreçlerimizin otomasyonu ile raporlama süremiz %70 kısaldı ve insan kaynaklı hataları minimum seviyeye indirdik.",
-    company: "FinTech Solutions",
-  },
-  {
-    name: "Elif Yıldız",
-    role: "İK Direktörü, HRTech",
-    content:
-      "İK süreçlerimizin AI ile otomasyonu sayesinde işe alım sürecimiz hızlandı ve çalışan memnuniyetimiz %45 arttı.",
-    company: "HRTech",
-  },
-];
-
 export function Testimonials() {
+  const testimonials = useTestimonialStore((state) => state.testimonials);
+
   return (
-    // dark:bg-slate-900 bg-slate-50
-    <section className="py-8">  
+    <section className="py-8">
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

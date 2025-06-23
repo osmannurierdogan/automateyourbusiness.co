@@ -12,99 +12,11 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-const caseStudies = [
-  {
-    title: "Blog Otomasyonu",
-    company: "Fal Periniz",
-    description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
-    stats: [
-      { label: "Aylık Ziyaretçi Sayısı", value: "↑35%" },
-      { label: "Sitede Geçirilen Süre", value: "↑40%" },
-    ],
-    tags: ["E-ticaret", "AI", "Blog", "Otomasyon"],
-    // image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070",
-    image: "/images/case-studies/falperiniz.png",
-  },
-  {
-    title: "Blog Otomasyonu",
-    company: "Evdeki Dostun",
-    description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
-    stats: [
-      { label: "Aylık Ziyaretçi Sayısı", value: "↑40%" },
-      { label: "Sitede Geçirilen Süre", value: "↑45%" },
-    ],
-    tags: ["E-ticaret", "AI", "Blog", "Otomasyon"],
-    // image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070",
-    image: "/images/case-studies/evdekidostun.png",
-  },
-  {
-    title: "Blog Otomasyonu",
-    company: "Wilderness Haven",
-    description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
-    stats: [
-      { label: "Aylık Ziyaretçi Sayısı", value: "↑50%" },
-      { label: "Sitede Geçirilen Süre", value: "↑60%" },
-    ],
-    tags: ["E-ticaret", "AI", "Blog", "Otomasyon"],
-    // image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070",
-    image: "/images/case-studies/wildernesshaven.png",
-  },
-  {
-    title: "Kahve Falı ve Rüya Yorumları",
-    company: "Fal Periniz",
-    description: "Rüya ve fal yorumlarının AI destekli otomatik oluşturulması ve yayınlanması.",
-    stats: [
-      { label: "Müşteri Memnuniyeti", value: "↑45%" },
-      { label: "Sipariş Hazırlama Süresi", value: "↓80%" },
-    ],
-    tags: ["Servis", "AI"],
-    // image:
-    //   "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=2070",
-    image: "/images/case-studies/falperiniz.png",
-  },
-  // {
-  //   title: "Üretim Optimizasyonu",
-  //   company: "IndusTech",
-  //   description: "AI destekli kalite kontrol ve üretim planlama sistemi.",
-  //   stats: [
-  //     { label: "Üretim", value: "↑45%" },
-  //     { label: "Hata", value: "↓80%" },
-  //   ],
-  //   tags: ["Üretim", "AI"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=2070",
-  // },
-  // {
-  //   title: "Lojistik Yönetimi",
-  //   company: "FastCargo",
-  //   description: "Rota optimizasyonu ve teslimat takip sistemi.",
-  //   stats: [
-  //     { label: "Hız", value: "↑50%" },
-  //     { label: "Yakıt", value: "↓30%" },
-  //   ],
-  //   tags: ["Lojistik", "AI"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070",
-  // },
-  // {
-  //   title: "Müşteri Hizmetleri",
-  //   company: "ServicePro",
-  //   description: "Chatbot ve ticket yönetim sistemi entegrasyonu.",
-  //   stats: [
-  //     { label: "Yanıt", value: "↓70%" },
-  //     { label: "Memnuniyet", value: "↑85%" },
-  //   ],
-  //   tags: ["Hizmet", "AI"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070",
-  // },
-];
+import { useCaseStudyStore } from "@/lib/store/caseStudies";
 
 export function CaseStudies() {
+  const caseStudies = useCaseStudyStore((state) => state.caseStudies);
+
   return (
     <section className="py-16">
       <div className="container px-4 mx-auto">

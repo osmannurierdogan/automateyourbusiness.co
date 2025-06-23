@@ -2,57 +2,39 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { useNavigationStore } from "@/lib/store/navigation";
+import { Facebook, Twitter, Linkedin, Instagram, Youtube, Github, LucideIcon } from "lucide-react";
 
-const navigation = {
-  main: [
-    // { name: "Hakkımızda", href: "/about" },
-    // { name: "Hizmetler", href: "/services" },
-    { name: "Çözümler", href: "/solutions" },
-    { name: "Hazır Sistemler", href: "/tools" },
-    // { name: "Blog", href: "/blog" },
-    { name: "İletişim", href: "/contact" },
-    // { name: "Kariyer", href: "/careers" },
-  ],
-  social: [
-    {
-      name: "Facebook",
-      href: "#",
-      icon: Facebook,
-    },
-    {
-      name: "Twitter",
-      href: "#",
-      icon: Twitter,
-    },
-    {
-      name: "LinkedIn",
-      href: "#",
-      icon: Linkedin,
-    },
-    {
-      name: "Instagram",
-      href: "#",
-      icon: Instagram,
-    },
-  ],
+type SocialIconsType = {
+  [key: string]: LucideIcon;
+};
+
+const socialIcons: SocialIconsType = {
+  facebook: Facebook,
+  twitter: Twitter,
+  linkedin: Linkedin,
+  instagram: Instagram,
+  youtube: Youtube,
+  github: Github,
 };
 
 export function Footer() {
+  const { footerSections, footerContact } = useNavigationStore();
+
   return (
     <footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-1 gap-8">
           {/* Logo ve Açıklama */}
           <div>
             <Link href="/" className="inline-block mb-4">
-              <Image 
-                src="/images/logo.png" 
-                alt="Automate Your Business" 
-                width={175} 
-                height={100} 
+              <Image
+                src="/images/logo.png"
+                alt="Automate Your Business"
+                width={175}
+                height={100}
                 priority
-                style={{ 
+                style={{
                   objectFit: 'contain',
                   filter: 'brightness(0)'
                 }}
@@ -64,93 +46,77 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Navigasyon */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Hızlı Erişim</h3>
-            <ul className="space-y-2">
-              {navigation.main.slice(0, 4).map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-
-              <li>
-                <a
-                  href="https://cal.com/automateyourbusiness/15min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  Ücretsiz Danışmanlık
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* İletişim */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">İletişim</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="mailto:info@automateyourbusiness.co"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  info@automateyourbusiness.co
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+905451224170"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  Tel (TR): +90 545 122 41 70
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+12135799208"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  Tel (US): +1 213 579 9208
-                </a>
-              </li>
-              <li>
-                <p className="text-muted-foreground text-sm">
-                  7901 4th St N Ste 300, St. Petersburg, Florida, USA 33702
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Sosyal Medya */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Bizi Takip Edin</h3>
-            <div className="flex space-x-4">
-              {navigation.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" />
-                </a>
-              ))}
+          {/* Navigasyon Bölümleri */}
+          {footerSections.slice(0, 4).map((section, index) => (
+            <div key={index} className="space-y-4">
+              <h3 className="font-semibold">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>
+                    <Link
+                      href={item.href}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Alt Bilgi */}
+        {/* İletişim ve Sosyal Medya */}
         <div className="mt-12 pt-8 border-t">
-          <p className="text-center text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Automate Your Business. Tüm hakları saklıdır.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-2">
+              <a
+                href={`mailto:${footerContact.email}`}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block"
+              >
+                Email: {footerContact.email}
+              </a>
+              <a
+                href={`tel:${footerContact.phoneTR}`}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block"
+              >
+                Telefon (TR): {footerContact.phoneTR}
+              </a>
+              <a
+                href={`tel:${footerContact.phoneUS}`}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm block"
+              >
+                Telefon (US): {footerContact.phoneUS}
+              </a>
+              <p className="text-muted-foreground text-sm">
+                Adres: {footerContact.address}
+              </p>
+            </div>
+            <div className="flex justify-finish md:justify-end space-x-4 sm:justify-between flex-col">
+              <div className="flex justify-finish align-center items-center md:justify-end gap-6 sm:gap-2 sm:items-center justify-center">
+              {footerContact.socialLinks.map((social, index) => {
+                const Icon = socialIcons[social.icon.toLowerCase()];
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <span className="sr-only">{social.platform}</span>
+                    <Icon className="h-6 w-6" />
+                  </a>
+                );
+              })}
+              </div>
+              <div className="mt-8 flex justify-end">
+                <p className="text-center text-muted-foreground text-sm">
+                  © {new Date().getFullYear()} Automate Your Business. Tüm hakları saklıdır.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

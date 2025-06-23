@@ -1,10 +1,6 @@
-const express = require('express');
+import Stripe from 'stripe';
+import express from 'express';
 const router = express.Router();
-const Stripe = require('stripe');
-const path = require('path');
-require('dotenv').config({
-  path: path.resolve(__dirname, '../../../.env.local')
-});
 
 // Stripe API anahtarı kontrolü
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -15,6 +11,28 @@ if (!stripeSecretKey) {
 
 const stripe = new Stripe(stripeSecretKey);
 
+// Ürün isimlerini getiren yardımcı fonksiyon
+function getProductName(productId) {
+  const names = {
+    "blog-automation": "Blog Otomasyonu",
+    "social-automation": "Sosyal Medya Otomasyonu",
+    "email-automation": "Email Otomasyonu",
+    "ecommerce-automation": "E-ticaret Otomasyonu"
+  };
+  return names[productId] || "Otomasyon Paketi";
+}
+
+// Ürün fiyatlarını getiren yardımcı fonksiyon
+function getProductPrice(productId) {
+  const prices = {
+    "blog-automation": 999, // 9.99 USD
+    "social-automation": 1999, // 19.99 USD
+    "email-automation": 1499, // 14.99 USD
+    "ecommerce-automation": 2499, // 24.99 USD
+  };
+  return prices[productId];
+}
+
 router.post('/', async (req, res) => {
   try {
     const { productId } = req.body;
@@ -24,15 +42,7 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: "Product ID is required" });
     }
 
-    // Price mapping
-    const prices = {
-      "blog-automation": 999, // 9.99 USD
-      "social-automation": 1999, // 19.99 USD
-      "email-automation": 1499, // 14.99 USD
-      "ecommerce-automation": 2499, // 24.99 USD
-    };
-
-    const price = prices[productId];
+    const price = getProductPrice(productId);
     if (!price) {
       return res.status(400).json({ error: "Invalid product ID" });
     }
@@ -69,21 +79,10 @@ router.post('/', async (req, res) => {
         error: stripeError.message || "Failed to create Stripe session"
       });
     }
-  } catch (error) {
-    console.error("API route error:", error);
+  } catch (err) {
+    console.error("Error:", err);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
 
-// Ürün isimlerini getiren yardımcı fonksiyon
-function getProductName(productId) {
-  const names = {
-    "blog-automation": "Blog Otomasyonu",
-    "social-automation": "Sosyal Medya Otomasyonu",
-    "email-automation": "Email Otomasyonu",
-    "ecommerce-automation": "E-ticaret Otomasyonu"
-  };
-  return names[productId] || "Otomasyon Paketi";
-}
-
-module.exports = router; 
+export default router; 

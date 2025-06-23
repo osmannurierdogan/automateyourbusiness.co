@@ -9,83 +9,21 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
 import { Card } from "@/components/ui/card";
-
-const products = [
-  {
-    id: "blog-automation",
-    name: "Blog Otomasyonu",
-    description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-    price: "9.99",
-    comparePrice: "19.99",
-    features: [
-      "AI destekli içerik üretimi",
-      "SEO optimizasyonu",
-      "Otomatik yayınlama",
-      "Özelleştirilebilir yazı şablonları",
-      "Detaylı kurulum dokümanı",
-    ],
-  },
-  {
-    id: "social-automation",
-    name: "İçerik Otomasyonu",
-    description: "Sosyal medya hesaplarınız için otomatik içerik üretimi ve paylaşım yönetimi.",
-    price: "19.99",
-    comparePrice: "39.99",
-    features: [
-      "Çoklu platform desteği",
-      "AI destekli içerik üretimi",
-      "Otomatik paylaşım zamanlaması",
-      "Etkileşim analizi",
-      "Detaylı kurulum dokümanı",
-    ],
-  },
-  {
-    id: "email-automation",
-    name: "Email Otomasyonu",
-    description: "Email pazarlama kampanyalarınız için otomatik içerik üretimi ve gönderim yönetimi.",
-    price: "14.99",
-    comparePrice: "29.99",
-    features: [
-      "Kişiselleştirilmiş içerik",
-      "A/B testi",
-      "Otomatik gönderim planlaması",
-      "Detaylı analitik",
-      "Şablon kütüphanesi",
-    ],
-  },
-  {
-    id: "ecommerce-automation",
-    name: "E-ticaret Otomasyonu",
-    description: "Online mağazanız için otomatik ürün açıklamaları ve SEO optimizasyonu.",
-    price: "24.99",
-    comparePrice: "49.99",
-    features: [
-      "Ürün açıklaması üretimi",
-      "SEO optimizasyonu",
-      "Fiyat takibi",
-      "Stok yönetimi",
-      "Pazaryeri entegrasyonu",
-    ],
-  },
-];
+import { useProductStore } from "@/lib/store/products";
 
 export default function Home() {
-  // const [loading, setLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const products = useProductStore((state) => state.products);
 
   const handlePurchase = async (productId: string) => {
     try {
-
-      // setLoading(productId);
       setError(null);
 
-      // Stripe yüklemesini kontrol et
       const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
       if (!stripePromise) {
         throw new Error("Stripe yüklenemedi. Lütfen daha sonra tekrar deneyin.");
       }
 
-      // API isteği
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/api/stripe`, {
         method: "POST",
         headers: {
@@ -94,28 +32,23 @@ export default function Home() {
         body: JSON.stringify({ productId }),
       });
 
-      // Response'u parse et
       const data = await response.json().catch(() => {
         throw new Error("Sunucu yanıtı işlenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
       });
 
-      // HTTP hata kontrolü
       if (!response.ok) {
         throw new Error(data?.error || "Ödeme başlatılırken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
       }
 
-      // Session ID kontrolü
       if (!data?.sessionId) {
         throw new Error("Geçersiz sunucu yanıtı. Lütfen daha sonra tekrar deneyin.");
       }
 
-      // Stripe nesnesini al
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error("Stripe yüklenemedi. Lütfen daha sonra tekrar deneyin.");
       }
 
-      // Checkout'a yönlendir
       const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId: data.sessionId,
       });
@@ -126,14 +59,11 @@ export default function Home() {
     } catch (err) {
       console.error("Error:", err);
       setError(err instanceof Error ? err.message : "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
-    } finally {
-      // setLoading(null);
     }
   };
 
   return (
     <main className="min-h-screen relative">
-      {/* Background gradient */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-slate-950">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-blue-100 dark:from-slate-800 dark:via-slate-950 dark:to-slate-800 opacity-80" />
       </div>

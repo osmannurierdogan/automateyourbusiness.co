@@ -6,69 +6,71 @@ import { Button } from "@/components/ui/button";
 import { loadStripe } from "@stripe/stripe-js";
 import { Header } from "@/components/layout/Header";
 import { motion } from "framer-motion";
+import { useProductStore } from "@/lib/store/products";
 
-const products = [
-  {
-    id: "blog-automation",
-    name: "Blog Otomasyonu",
-    description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-    price: "9.99",
-    comparePrice: "19.99",
-    features: [
-      "AI destekli içerik üretimi",
-      "SEO optimizasyonu",
-      "Otomatik yayınlama",
-      "Özelleştirilebilir yazı şablonları",
-      "Detaylı kurulum dokümanı",
-    ],
-  },
-  {
-    id: "social-automation",
-    name: "İçerik Otomasyonu",
-    description: "Sosyal medya hesaplarınız için otomatik içerik üretimi ve paylaşım yönetimi.",
-    price: "19.99",
-    comparePrice: "39.99",
-    features: [
-      "Çoklu platform desteği",
-      "AI destekli içerik üretimi",
-      "Otomatik paylaşım zamanlaması",
-      "Etkileşim analizi",
-      "Detaylı kurulum dokümanı",
-    ],
-  },
-  {
-    id: "email-automation",
-    name: "Email Otomasyonu",
-    description: "Email pazarlama kampanyalarınız için otomatik içerik üretimi ve gönderim yönetimi.",
-    price: "14.99",
-    comparePrice: "29.99",
-    features: [
-      "Kişiselleştirilmiş içerik",
-      "A/B testi",
-      "Otomatik gönderim planlaması",
-      "Detaylı analitik",
-      "Şablon kütüphanesi",
-    ],
-  },
-  {
-    id: "ecommerce-automation",
-    name: "E-ticaret Otomasyonu",
-    description: "Online mağazanız için otomatik ürün açıklamaları ve SEO optimizasyonu.",
-    price: "24.99",
-    comparePrice: "49.99",
-    features: [
-      "Ürün açıklaması üretimi",
-      "SEO optimizasyonu",
-      "Fiyat takibi",
-      "Stok yönetimi",
-      "Pazaryeri entegrasyonu",
-    ],
-  },
-];
+// const products = [
+//   {
+//     id: "blog-automation",
+//     name: "Blog Otomasyonu",
+//     description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
+//     price: "9.99",
+//     comparePrice: "19.99",
+//     features: [
+//       "AI destekli içerik üretimi",
+//       "SEO optimizasyonu",
+//       "Otomatik yayınlama",
+//       "Özelleştirilebilir yazı şablonları",
+//       "Detaylı kurulum dokümanı",
+//     ],
+//   },
+//   {
+//     id: "social-automation",
+//     name: "İçerik Otomasyonu",
+//     description: "Sosyal medya hesaplarınız için otomatik içerik üretimi ve paylaşım yönetimi.",
+//     price: "19.99",
+//     comparePrice: "39.99",
+//     features: [
+//       "Çoklu platform desteği",
+//       "AI destekli içerik üretimi",
+//       "Otomatik paylaşım zamanlaması",
+//       "Etkileşim analizi",
+//       "Detaylı kurulum dokümanı",
+//     ],
+//   },
+//   {
+//     id: "email-automation",
+//     name: "Email Otomasyonu",
+//     description: "Email pazarlama kampanyalarınız için otomatik içerik üretimi ve gönderim yönetimi.",
+//     price: "14.99",
+//     comparePrice: "29.99",
+//     features: [
+//       "Kişiselleştirilmiş içerik",
+//       "A/B testi",
+//       "Otomatik gönderim planlaması",
+//       "Detaylı analitik",
+//       "Şablon kütüphanesi",
+//     ],
+//   },
+//   {
+//     id: "ecommerce-automation",
+//     name: "E-ticaret Otomasyonu",
+//     description: "Online mağazanız için otomatik ürün açıklamaları ve SEO optimizasyonu.",
+//     price: "24.99",
+//     comparePrice: "49.99",
+//     features: [
+//       "Ürün açıklaması üretimi",
+//       "SEO optimizasyonu",
+//       "Fiyat takibi",
+//       "Stok yönetimi",
+//       "Pazaryeri entegrasyonu",
+//     ],
+//   },
+// ];
 
 export default function ToolsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const products = useProductStore((state) => state.products);
 
   const handlePurchase = async (productId: string) => {
     try {

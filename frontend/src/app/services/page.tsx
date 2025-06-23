@@ -9,85 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Brain,
-  Factory,
-  Bot,
-  Workflow,
-  Database,
-  MessageSquareCode,
-} from "lucide-react";
-
-const services = [
-  {
-    title: "AI Süreç Otomasyonu",
-    description:
-      "İş süreçlerinizi yapay zeka ile otomatikleştirerek verimliliği artırın ve maliyetleri düşürün.",
-    icon: Workflow,
-    features: [
-      "İş akışı optimizasyonu",
-      "Akıllı görev dağılımı",
-      "Otomatik raporlama",
-    ],
-  },
-  {
-    title: "Makine Öğrenmesi Çözümleri",
-    description:
-      "Verilerinizden değer üreten, öğrenen ve kendini geliştiren sistemler oluşturun.",
-    icon: Brain,
-    features: [
-      "Tahminsel analitik",
-      "Anomali tespiti",
-      "Müşteri segmentasyonu",
-    ],
-  },
-  {
-    title: "Robotik Süreç Otomasyonu (RPA)",
-    description:
-      "Tekrarlayan işlerinizi robotlara devrederek zaman kazanın ve hata oranlarını azaltın.",
-    icon: Bot,
-    features: [
-      "Veri girişi otomasyonu",
-      "Sistem entegrasyonları",
-      "İş süreci otomasyonu",
-    ],
-  },
-  {
-    title: "Endüstriyel IoT Çözümleri",
-    description:
-      "Üretim süreçlerinizi akıllı sensörler ve AI ile optimize edin.",
-    icon: Factory,
-    features: [
-      "Gerçek zamanlı izleme",
-      "Prediktif bakım",
-      "Enerji optimizasyonu",
-    ],
-  },
-  {
-    title: "Veri Analizi ve İş Zekası",
-    description:
-      "Verilerinizi anlamlı içgörülere dönüştürerek daha iyi kararlar alın.",
-    icon: Database,
-    features: [
-      "Veri görselleştirme",
-      "İş zekası raporları",
-      "Performans analizi",
-    ],
-  },
-  {
-    title: "AI Chatbot ve Asistanlar",
-    description:
-      "Müşteri hizmetlerinizi 7/24 AI destekli chatbotlar ile güçlendirin.",
-    icon: MessageSquareCode,
-    features: [
-      "Doğal dil işleme",
-      "Çok dilli destek",
-      "Özelleştirilebilir yanıtlar",
-    ],
-  },
-];
+import { useServiceStore } from "@/lib/store/services";
 
 export default function Services() {
+  const services = useServiceStore((state) => state.services);
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
