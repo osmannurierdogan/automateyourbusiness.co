@@ -61,35 +61,38 @@ export function Header() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px]">
-            <div className="flex flex-col h-full px-6 py-6">
-              {/* Navigation Links */}
-              <nav className="flex flex-col gap-6 mb-8">
-                {mainNav.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    className="text-base text-muted-foreground hover:text-primary transition-colors"
+          <SheetContent side="right" className="w-[300px] p-0">
+            <div className="flex flex-col h-full">
+              {/* Scrollable Navigation Links */}
+              <div className="flex-1 overflow-y-auto px-6 py-6">
+                <nav className="flex flex-col gap-6">
+                  {mainNav.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="text-base text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                  <a
+                    href="https://cal.com/automateyourbusiness/15min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    //className="text-base text-muted-foreground hover:text-primary transition-colors"
+                    className={buttonClassNames}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.title}
-                  </Link>
-                ))}
-                <a
-                  href="https://cal.com/automateyourbusiness/15min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Ücretsiz Danışmanlık
-                </a>
-              </nav>
+                    Ücretsiz Danışmanlık
+                  </a>
+                </nav>
+              </div>
 
-              {/* Logo, Slogan ve İletişim Bilgileri */}
-              <div className="mt-auto border-t pt-8 space-y-8">
+              {/* Fixed Bottom Section */}
+              <div className="border-t bg-background">
                 {/* Logo ve Slogan */}
-                <div>
+                <div className="px-6 py-6 border-b">
                   <Image
                     src="/images/logo.png"
                     alt="Automate Your Business"
@@ -108,15 +111,16 @@ export function Header() {
                 </div>
 
                 {/* İletişim Bilgileri */}
-                <div className="space-y-4">
-                  <h3 className="font-semibold">İletişim</h3>
-                  <div className="space-y-2">
-                    <a
-                      href={`mailto:${footerContact.email}`}
-                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {footerContact.email}
-                    </a>
+                <div className="px-6 py-6">
+                  <div className="space-y-4">
+                    <h3 className="font-semibold">İletişim</h3>
+                    <div className="space-y-2">
+                      <a
+                        href={`mailto:${footerContact.email}`}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {footerContact.email}
+                      </a>
                       <a
                         href={`tel:${footerContact.phoneTR}`}
                         className="block text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -129,9 +133,10 @@ export function Header() {
                       >
                         {footerContact.phoneUS}
                       </a>
-                    <p className="text-sm text-muted-foreground">
-                      {footerContact.address}
-                    </p>
+                      <p className="text-sm text-muted-foreground">
+                        {footerContact.address}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

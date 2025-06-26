@@ -47,6 +47,11 @@ const initialMainNav: NavItem[] = [
     description: "Ana sayfa",
   },
   {
+    title: "Hakkımızda",
+    href: "/about",
+    description: "Hakkımızda",
+  },
+  {
     title: "Çözümler",
     href: "/solutions",
     description: "Sektörel çözümlerimizi keşfedin.",

@@ -825,6 +825,10 @@
     min-width: var(--radix-select-trigger-width);
   }
 
+  .flex-1 {
+    flex: 1;
+  }
+
   .flex-shrink-0, .shrink-0 {
     flex-shrink: 0;
   }
@@ -1234,6 +1238,10 @@
 
   .object-cover {
     object-fit: cover;
+  }
+
+  .p-0 {
+    padding: calc(var(--spacing) * 0);
   }
 
   .p-1 {

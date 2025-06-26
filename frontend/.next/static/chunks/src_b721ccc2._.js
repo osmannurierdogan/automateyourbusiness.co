@@ -401,45 +401,54 @@ function Header() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sheet$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SheetContent"], {
                             side: "right",
-                            className: "w-[300px]",
+                            className: "w-[300px] p-0",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-col h-full px-6 py-6",
+                                className: "flex flex-col h-full",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                                        className: "flex flex-col gap-6 mb-8",
-                                        children: [
-                                            mainNav.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: item.href,
-                                                    className: "text-base text-muted-foreground hover:text-primary transition-colors",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex-1 overflow-y-auto px-6 py-6",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                                            className: "flex flex-col gap-6",
+                                            children: [
+                                                mainNav.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        href: item.href,
+                                                        className: "text-base text-muted-foreground hover:text-primary transition-colors",
+                                                        onClick: ()=>setIsOpen(false),
+                                                        children: item.title
+                                                    }, item.title, false, {
+                                                        fileName: "[project]/src/components/layout/Header.tsx",
+                                                        lineNumber: 70,
+                                                        columnNumber: 21
+                                                    }, this)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: "https://cal.com/automateyourbusiness/15min",
+                                                    target: "_blank",
+                                                    rel: "noopener noreferrer",
+                                                    //className="text-base text-muted-foreground hover:text-primary transition-colors"
+                                                    className: buttonClassNames,
                                                     onClick: ()=>setIsOpen(false),
-                                                    children: item.title
-                                                }, item.title, false, {
+                                                    children: "Ücretsiz Danışmanlık"
+                                                }, void 0, false, {
                                                     fileName: "[project]/src/components/layout/Header.tsx",
-                                                    lineNumber: 69,
+                                                    lineNumber: 79,
                                                     columnNumber: 19
-                                                }, this)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://cal.com/automateyourbusiness/15min",
-                                                target: "_blank",
-                                                rel: "noopener noreferrer",
-                                                className: "text-base text-muted-foreground hover:text-primary transition-colors",
-                                                onClick: ()=>setIsOpen(false),
-                                                children: "Ücretsiz Danışmanlık"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/layout/Header.tsx",
-                                                lineNumber: 78,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/layout/Header.tsx",
+                                            lineNumber: 68,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
                                         fileName: "[project]/src/components/layout/Header.tsx",
                                         lineNumber: 67,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mt-auto border-t pt-8 space-y-8",
+                                        className: "border-t bg-background",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "px-6 py-6 border-b",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                         src: "/images/logo.png",
@@ -454,7 +463,7 @@ function Header() {
                                                         className: "mb-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/layout/Header.tsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 96,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -462,80 +471,87 @@ function Header() {
                                                         children: "Yapay zeka destekli çözümlerimizle işlerinizi otomatikleştirin ve zamanınızı daha verimli hale getirin."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/layout/Header.tsx",
-                                                        lineNumber: 105,
+                                                        lineNumber: 108,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/layout/Header.tsx",
-                                                lineNumber: 92,
+                                                lineNumber: 95,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-4",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "font-semibold",
-                                                        children: "İletişim"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/components/layout/Header.tsx",
-                                                        lineNumber: 112,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "space-y-2",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                href: `mailto:${footerContact.email}`,
-                                                                className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
-                                                                children: footerContact.email
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/layout/Header.tsx",
-                                                                lineNumber: 114,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                href: `tel:${footerContact.phoneTR}`,
-                                                                className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
-                                                                children: footerContact.phoneTR
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/layout/Header.tsx",
-                                                                lineNumber: 120,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                href: `tel:${footerContact.phoneUS}`,
-                                                                className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
-                                                                children: footerContact.phoneUS
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/layout/Header.tsx",
-                                                                lineNumber: 126,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-sm text-muted-foreground",
-                                                                children: footerContact.address
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/layout/Header.tsx",
-                                                                lineNumber: 132,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/components/layout/Header.tsx",
-                                                        lineNumber: 113,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
+                                                className: "px-6 py-6",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "font-semibold",
+                                                            children: "İletişim"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/layout/Header.tsx",
+                                                            lineNumber: 116,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    href: `mailto:${footerContact.email}`,
+                                                                    className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
+                                                                    children: footerContact.email
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/components/layout/Header.tsx",
+                                                                    lineNumber: 118,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    href: `tel:${footerContact.phoneTR}`,
+                                                                    className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
+                                                                    children: footerContact.phoneTR
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/components/layout/Header.tsx",
+                                                                    lineNumber: 124,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    href: `tel:${footerContact.phoneUS}`,
+                                                                    className: "block text-sm text-muted-foreground hover:text-primary transition-colors",
+                                                                    children: footerContact.phoneUS
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/components/layout/Header.tsx",
+                                                                    lineNumber: 130,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-sm text-muted-foreground",
+                                                                    children: footerContact.address
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/components/layout/Header.tsx",
+                                                                    lineNumber: 136,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/components/layout/Header.tsx",
+                                                            lineNumber: 117,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/components/layout/Header.tsx",
+                                                    lineNumber: 115,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/Header.tsx",
-                                                lineNumber: 111,
+                                                lineNumber: 114,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/layout/Header.tsx",
-                                        lineNumber: 90,
+                                        lineNumber: 93,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -1650,7 +1666,7 @@ const initialCaseStudies = [
     {
         title: "Blog Otomasyonu",
         company: "Fal Periniz",
-        description: "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+        description: "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
         stats: [
             {
                 label: "Aylık Ziyaretçi Sayısı",
@@ -1672,7 +1688,7 @@ const initialCaseStudies = [
     {
         title: "Blog Otomasyonu",
         company: "Evdeki Dostun",
-        description: "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+        description: "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
         stats: [
             {
                 label: "Aylık Ziyaretçi Sayısı",
@@ -1694,7 +1710,7 @@ const initialCaseStudies = [
     {
         title: "Blog Otomasyonu",
         company: "Wilderness Haven",
-        description: "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+        description: "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
         stats: [
             {
                 label: "Aylık Ziyaretçi Sayısı",
