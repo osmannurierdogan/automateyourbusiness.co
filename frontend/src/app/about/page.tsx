@@ -107,7 +107,7 @@ export default function AboutPage() {
               <CardContent className="p-6">
                 <ul className="list-disc list-inside space-y-3 text-muted-foreground">
                   <li>Vakit kaybı yaşamadan sistematik şekilde işini büyütmek isteyen girişimciler</li>
-                  <li>Tekrarlayan işleri minimuma indirerek enerjisini satışa ve gelişmeye yönlendirmek isteyen KOBİ'ler</li>
+                  <li>Tekrarlayan işleri minimuma indirerek enerjisini satışa ve gelişmeye yönlendirmek isteyen KOBİ&rsquo;ler</li>
                   <li>Ajanslar, serbest çalışanlar ve dijital içerik üreticileri</li>
                 </ul>
               </CardContent>
