@@ -25,7 +25,7 @@ const initialCaseStudies: CaseStudy[] = [
     title: "Blog Otomasyonu",
     company: "Fal Periniz",
     description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+      "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
     stats: [
       { label: "Aylık Ziyaretçi Sayısı", value: "↑35%" },
       { label: "Sitede Geçirilen Süre", value: "↑40%" },
@@ -37,7 +37,7 @@ const initialCaseStudies: CaseStudy[] = [
     title: "Blog Otomasyonu",
     company: "Evdeki Dostun",
     description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+      "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
     stats: [
       { label: "Aylık Ziyaretçi Sayısı", value: "↑40%" },
       { label: "Sitede Geçirilen Süre", value: "↑45%" },
@@ -49,7 +49,7 @@ const initialCaseStudies: CaseStudy[] = [
     title: "Blog Otomasyonu",
     company: "Wilderness Haven",
     description:
-      "Blog yazılarının marka kimliğine uygun olarak oluşturulması ve yayınlanması.",
+      "Blog yazılarının marka kimliğine uygun olarak otomatik oluşturulması ve yayınlanması.",
     stats: [
       { label: "Aylık Ziyaretçi Sayısı", value: "↑50%" },
       { label: "Sitede Geçirilen Süre", value: "↑60%" },
