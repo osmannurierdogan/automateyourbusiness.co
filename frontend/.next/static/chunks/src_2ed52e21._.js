@@ -12,25 +12,30 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 ;
 const initialMainNav = [
     {
+        title: "Ana sayfa",
+        href: "/",
+        description: "Ana sayfa"
+    },
+    {
         title: "Çözümler",
         href: "/solutions",
         description: "Sektörel çözümlerimizi keşfedin."
     },
-    {
-        title: "Hizmetler",
-        href: "/services",
-        description: "AI ve otomasyon hizmetlerimiz."
-    },
+    // {
+    //   title: "Hizmetler",
+    //   href: "/services",
+    //   description: "AI ve otomasyon hizmetlerimiz.",
+    // },
     {
         title: "Hazır Sistemler",
         href: "/tools",
         description: "Kullanıma hazır AI sistemlerimiz."
     },
-    {
-        title: "Fiyatlandırma",
-        href: "/pricing",
-        description: "Fiyatlandırma planlarımız."
-    },
+    // {
+    //   title: "Fiyatlandırma",
+    //   href: "/pricing",
+    //   description: "Fiyatlandırma planlarımız.",
+    // },
     {
         title: "İletişim",
         href: "/contact",
@@ -43,19 +48,19 @@ const initialFooterSections = [
         items: [
             {
                 title: "Gizlilik Politikası",
-                href: "/privacy"
+                href: "/legal/privacy"
             },
             {
                 title: "Kullanım Şartları",
-                href: "/terms"
+                href: "/legal/terms"
             },
             {
                 title: "KVKK",
-                href: "/kvkk"
+                href: "/legal/kvkk"
             },
             {
                 title: "Çerez Politikası",
-                href: "/cookies"
+                href: "/legal/cookies"
             }
         ]
     },
@@ -68,11 +73,11 @@ const initialFooterSections = [
             },
             {
                 title: "Blog",
-                href: "/blog"
+                href: "/"
             },
             {
                 title: "Kariyer",
-                href: "/careers"
+                href: "/"
             },
             {
                 title: "İletişim",

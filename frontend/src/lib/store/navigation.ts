@@ -42,25 +42,30 @@ interface NavigationStore {
 
 const initialMainNav: NavItem[] = [
   {
+    title: "Ana sayfa",
+    href: "/",
+    description: "Ana sayfa",
+  },
+  {
     title: "Çözümler",
     href: "/solutions",
     description: "Sektörel çözümlerimizi keşfedin.",
   },
-  {
-    title: "Hizmetler",
-    href: "/services",
-    description: "AI ve otomasyon hizmetlerimiz.",
-  },
+  // {
+  //   title: "Hizmetler",
+  //   href: "/services",
+  //   description: "AI ve otomasyon hizmetlerimiz.",
+  // },
   {
     title: "Hazır Sistemler",
     href: "/tools",
     description: "Kullanıma hazır AI sistemlerimiz.",
   },
-  {
-    title: "Fiyatlandırma",
-    href: "/pricing",
-    description: "Fiyatlandırma planlarımız.",
-  },
+  // {
+  //   title: "Fiyatlandırma",
+  //   href: "/pricing",
+  //   description: "Fiyatlandırma planlarımız.",
+  // },
   {
     title: "İletişim",
     href: "/contact",
@@ -72,18 +77,18 @@ const initialFooterSections: FooterSection[] = [
   {
     title: "Yasal",
     items: [
-      { title: "Gizlilik Politikası", href: "/privacy" },
-      { title: "Kullanım Şartları", href: "/terms" },
-      { title: "KVKK", href: "/kvkk" },
-      { title: "Çerez Politikası", href: "/cookies" },
+      { title: "Gizlilik Politikası", href: "/legal/privacy" },
+      { title: "Kullanım Şartları", href: "/legal/terms" },
+      { title: "KVKK", href: "/legal/kvkk" },
+      { title: "Çerez Politikası", href: "/legal/cookies" },
     ],
   },
   {
     title: "Şirket",
     items: [
       { title: "Hakkımızda", href: "/about" },
-      { title: "Blog", href: "/blog" },
-      { title: "Kariyer", href: "/careers" },
+      { title: "Blog", href: "/" }, //blog
+      { title: "Kariyer", href: "/" }, //careers
       { title: "İletişim", href: "/contact" },
     ],
   },

@@ -184,6 +184,7 @@
     --container-lg: 32rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
+    --container-4xl: 56rem;
     --text-xs: .75rem;
     --text-xs--line-height: calc(1 / .75);
     --text-sm: .875rem;
@@ -751,6 +752,10 @@
     height: calc(var(--spacing) * 4);
   }
 
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -835,6 +840,10 @@
     width: calc(var(--spacing) * 4);
   }
 
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
@@ -867,12 +876,20 @@
     max-width: var(--container-3xl);
   }
 
+  .max-w-4xl {
+    max-width: var(--container-4xl);
+  }
+
   .max-w-\[calc\(100\%-2rem\)\] {
     max-width: calc(100% - 2rem);
   }
 
   .max-w-lg {
     max-width: var(--container-lg);
+  }
+
+  .max-w-none {
+    max-width: none;
   }
 
   .min-w-0 {
@@ -947,6 +964,14 @@
     scroll-margin-block: calc(var(--spacing) * 1);
   }
 
+  .list-inside {
+    list-style-position: inside;
+  }
+
+  .list-disc {
+    list-style-type: disc;
+  }
+
   .auto-rows-min {
     grid-auto-rows: min-content;
   }
@@ -993,14 +1018,6 @@
 
   .justify-end {
     justify-content: flex-end;
-  }
-
-  .justify-evenly {
-    justify-content: space-evenly;
-  }
-
-  .justify-start {
-    justify-content: flex-start;
   }
 
   .gap-1 {
@@ -1201,6 +1218,16 @@
     background-color: var(--muted);
   }
 
+  .bg-muted\/50 {
+    background-color: var(--muted);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-muted\/50 {
+      background-color: color-mix(in oklab, var(--muted) 50%, transparent);
+    }
+  }
+
   .bg-popover {
     background-color: var(--popover);
   }
@@ -1396,10 +1423,6 @@
     text-align: center;
   }
 
-  .text-right {
-    text-align: right;
-  }
-
   .font-sans {
     font-family: var(--font-geist-sans);
   }
@@ -1476,6 +1499,10 @@
 
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+
+  .whitespace-pre-wrap {
+    white-space: pre-wrap;
   }
 
   .text-card-foreground {
@@ -2178,18 +2205,6 @@
   }
 
   @media (width >= 40rem) {
-    .sm\:mt-0 {
-      margin-top: calc(var(--spacing) * 0);
-    }
-  }
-
-  @media (width >= 40rem) {
-    .sm\:flex {
-      display: flex;
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:max-w-lg {
       max-width: var(--container-lg);
     }
@@ -2220,12 +2235,6 @@
   }
 
   @media (width >= 40rem) {
-    .sm\:flex-col {
-      flex-direction: column;
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:flex-row {
       flex-direction: row;
     }
@@ -2244,38 +2253,14 @@
   }
 
   @media (width >= 40rem) {
-    .sm\:justify-center {
-      justify-content: center;
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:justify-end {
       justify-content: flex-end;
     }
   }
 
   @media (width >= 40rem) {
-    .sm\:justify-start {
-      justify-content: flex-start;
-    }
-  }
-
-  @media (width >= 40rem) {
-    .sm\:gap-0 {
-      gap: calc(var(--spacing) * 0);
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:gap-2 {
       gap: calc(var(--spacing) * 2);
-    }
-  }
-
-  @media (width >= 40rem) {
-    .sm\:text-center {
-      text-align: center;
     }
   }
 
@@ -2338,12 +2323,6 @@
   @media (width >= 48rem) {
     .md\:justify-end {
       justify-content: flex-end;
-    }
-  }
-
-  @media (width >= 48rem) {
-    .md\:justify-start {
-      justify-content: flex-start;
     }
   }
 
