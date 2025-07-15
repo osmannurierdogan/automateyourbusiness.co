@@ -724,16 +724,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 const initialProducts = [
     {
         id: "blog-automation",
-        name: "Blog Otomasyonu",
-        description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-        price: 9.99,
-        comparePrice: 19.99,
+        name: "Blog Fabrikası",
+        description: "Shopify websiteniz için AI destekli otomatik blog yazıları oluşturarak Google'da üst sıralara yükselin.",
+        price: 29.99,
+        comparePrice: 39.99,
         features: [
             "AI destekli içerik üretimi",
-            "SEO optimizasyonu",
+            "AI destekli görsel üretimi",
+            "Marka kimliğinize uygun içerik üretimi",
             "Otomatik yayınlama",
+            "SEO optimizasyonu",
             "Özelleştirilebilir yazı şablonları",
-            "Detaylı kurulum dokümanı"
+            "Detaylı kullanım dokümanı ve videosu"
         ]
     },
     {
@@ -853,7 +855,7 @@ function ToolsPage() {
                 throw new Error("Ürün bulunamadı. Lütfen daha sonra tekrar deneyin.");
             }
             // API isteği
-            const response = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3001") || 'http://localhost:3001'}/api/stripe`, {
+            const response = await fetch(`${("TURBOPACK compile-time value", "https://automateyourbusiness.up.railway.app") || 'http://localhost:3001'}/api/stripe`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

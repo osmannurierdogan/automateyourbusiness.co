@@ -20,16 +20,18 @@ interface ProductStore {
 const initialProducts: Product[] = [
   {
     id: "blog-automation",
-    name: "Blog Otomasyonu",
-    description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-    price: 9.99,
-    comparePrice: 19.99,
+    name: "Blog Fabrikası",
+    description: "Shopify websiteniz için AI destekli otomatik blog yazıları oluşturarak Google'da üst sıralara yükselin.",
+    price: 29.99,
+    comparePrice: 39.99,
     features: [
       "AI destekli içerik üretimi",
-      "SEO optimizasyonu",
+      "AI destekli görsel üretimi",
+      "Marka kimliğinize uygun içerik üretimi",
       "Otomatik yayınlama",
+      "SEO optimizasyonu",
       "Özelleştirilebilir yazı şablonları",
-      "Detaylı kurulum dokümanı",
+      "Detaylı kullanım dokümanı ve videosu",
     ],
   },
   {
