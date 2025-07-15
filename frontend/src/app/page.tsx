@@ -70,9 +70,9 @@ export default function Home() {
 
       <Header />
       <div className="container mx-auto px-4 py-12">
-        <Hero />
-        <CaseStudies />
-        <Testimonials />
+      <Hero />
+      <CaseStudies />
+      <Testimonials />
         <section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-4">Hazır Sistemler</h2>
           <p className="text-center text-muted-foreground mb-12">

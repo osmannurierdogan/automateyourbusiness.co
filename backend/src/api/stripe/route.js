@@ -1,5 +1,5 @@
-import Stripe from 'stripe';
-import express from 'express';
+const Stripe = require('stripe');
+const express = require('express');
 const router = express.Router();
 
 // Stripe API anahtarı kontrolü
@@ -85,4 +85,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-export default router; 
+module.exports = router;

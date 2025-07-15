@@ -18,7 +18,7 @@ export function Testimonials() {
   const testimonials = useTestimonialStore((state) => state.testimonials);
 
   return (
-    <section className="py-8">
+    <section className="py-8">  
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
