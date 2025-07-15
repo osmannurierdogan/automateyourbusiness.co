@@ -83,13 +83,18 @@ export default function ToolsPage() {
         throw new Error("Stripe yüklenemedi. Lütfen daha sonra tekrar deneyin.");
       }
 
+      const productInfo = products.find((product) => product.id === productId);
+      if (!productInfo) {
+        throw new Error("Ürün bulunamadı. Lütfen daha sonra tekrar deneyin.");
+      }
+
       // API isteği
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/api/stripe`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ productId }),
+        body: JSON.stringify(productInfo),
       });
 
       // Response'u parse et

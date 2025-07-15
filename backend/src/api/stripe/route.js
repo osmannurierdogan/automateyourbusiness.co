@@ -35,15 +35,18 @@ function getProductPrice(productId) {
 
 router.post('/', async (req, res) => {
   try {
-    const { productId } = req.body;
+    const productId = req.body.id;
+    const productName = req.body.name;
+    const productDescription = req.body.description;
+    const productFeatures = req.body.features;
+    const productPrice = req.body.price;
 
     // Validate productId
     if (!productId) {
       return res.status(400).json({ error: "Product ID is required" });
     }
 
-    const price = getProductPrice(productId);
-    if (!price) {
+    if (!productPrice) {
       return res.status(400).json({ error: "Invalid product ID" });
     }
 
@@ -56,10 +59,10 @@ router.post('/', async (req, res) => {
             price_data: {
               currency: "usd",
               product_data: {
-                name: getProductName(productId),
-                description: "Otomasyon paketi",
+                name: productName,
+                description: productDescription,
               },
-              unit_amount: price,
+              unit_amount: productPrice * 100,
             },
             quantity: 1,
           },

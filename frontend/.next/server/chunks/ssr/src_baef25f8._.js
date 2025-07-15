@@ -657,8 +657,8 @@ const initialProducts = [
         id: "blog-automation",
         name: "Blog Otomasyonu",
         description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-        price: "9.99",
-        comparePrice: "19.99",
+        price: 9.99,
+        comparePrice: 19.99,
         features: [
             "AI destekli içerik üretimi",
             "SEO optimizasyonu",
@@ -671,8 +671,8 @@ const initialProducts = [
         id: "social-automation",
         name: "İçerik Otomasyonu",
         description: "Sosyal medya hesaplarınız için otomatik içerik üretimi ve paylaşım yönetimi.",
-        price: "19.99",
-        comparePrice: "39.99",
+        price: 19.99,
+        comparePrice: 39.99,
         features: [
             "Çoklu platform desteği",
             "AI destekli içerik üretimi",
@@ -685,8 +685,8 @@ const initialProducts = [
         id: "email-automation",
         name: "Email Otomasyonu",
         description: "Email pazarlama kampanyalarınız için otomatik içerik üretimi ve gönderim yönetimi.",
-        price: "14.99",
-        comparePrice: "29.99",
+        price: 14.99,
+        comparePrice: 29.99,
         features: [
             "Kişiselleştirilmiş içerik",
             "A/B testi",
@@ -699,8 +699,8 @@ const initialProducts = [
         id: "ecommerce-automation",
         name: "E-ticaret Otomasyonu",
         description: "Online mağazanız için otomatik ürün açıklamaları ve SEO optimizasyonu.",
-        price: "24.99",
-        comparePrice: "49.99",
+        price: 24.99,
+        comparePrice: 49.99,
         features: [
             "Ürün açıklaması üretimi",
             "SEO optimizasyonu",
@@ -771,15 +771,17 @@ function ToolsPage() {
             if (!stripePromise) {
                 throw new Error("Stripe yüklenemedi. Lütfen daha sonra tekrar deneyin.");
             }
+            const productInfo = products.find((product)=>product.id === productId);
+            if (!productInfo) {
+                throw new Error("Ürün bulunamadı. Lütfen daha sonra tekrar deneyin.");
+            }
             // API isteği
-            const response = await fetch(`${("TURBOPACK compile-time value", "https://automateyourbusiness.up.railway.app") || 'http://localhost:3001'}/api/stripe`, {
+            const response = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3001") || 'http://localhost:3001'}/api/stripe`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    productId
-                })
+                body: JSON.stringify(productInfo)
             });
             // Response'u parse et
             const data = await response.json().catch(()=>{
@@ -817,7 +819,7 @@ function ToolsPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$2f$Header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Header"], {}, void 0, false, {
                 fileName: "[project]/src/app/tools/page.tsx",
-                lineNumber: 134,
+                lineNumber: 139,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -842,7 +844,7 @@ function ToolsPage() {
                                 children: "Hazır Sistemler"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/tools/page.tsx",
-                                lineNumber: 142,
+                                lineNumber: 147,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -850,13 +852,13 @@ function ToolsPage() {
                                 children: "İşinizi otomatikleştirmek için hazır sistemlerimizi inceleyin"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/tools/page.tsx",
-                                lineNumber: 145,
+                                lineNumber: 150,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/tools/page.tsx",
-                        lineNumber: 136,
+                        lineNumber: 141,
                         columnNumber: 9
                     }, this),
                     error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -864,7 +866,7 @@ function ToolsPage() {
                         children: error
                     }, void 0, false, {
                         fileName: "[project]/src/app/tools/page.tsx",
-                        lineNumber: 151,
+                        lineNumber: 156,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -877,7 +879,7 @@ function ToolsPage() {
                                         children: product.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tools/page.tsx",
-                                        lineNumber: 159,
+                                        lineNumber: 164,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -885,7 +887,7 @@ function ToolsPage() {
                                         children: product.description
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tools/page.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 165,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -905,24 +907,24 @@ function ToolsPage() {
                                                             d: "M5 13l4 4L19 7"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/tools/page.tsx",
-                                                            lineNumber: 170,
+                                                            lineNumber: 175,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/tools/page.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 169,
                                                         columnNumber: 21
                                                     }, this),
                                                     feature
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/src/app/tools/page.tsx",
-                                                lineNumber: 163,
+                                                lineNumber: 168,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tools/page.tsx",
-                                        lineNumber: 161,
+                                        lineNumber: 166,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -936,7 +938,7 @@ function ToolsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/tools/page.tsx",
-                                                lineNumber: 182,
+                                                lineNumber: 187,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -947,13 +949,13 @@ function ToolsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/tools/page.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 188,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tools/page.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 186,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -963,30 +965,30 @@ function ToolsPage() {
                                         children: loading ? "İşleniyor..." : "Satın Al"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tools/page.tsx",
-                                        lineNumber: 185,
+                                        lineNumber: 190,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, product.id, true, {
                                 fileName: "[project]/src/app/tools/page.tsx",
-                                lineNumber: 158,
+                                lineNumber: 163,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/tools/page.tsx",
-                        lineNumber: 156,
+                        lineNumber: 161,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/tools/page.tsx",
-                lineNumber: 135,
+                lineNumber: 140,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/tools/page.tsx",
-        lineNumber: 133,
+        lineNumber: 138,
         columnNumber: 5
     }, this);
 }

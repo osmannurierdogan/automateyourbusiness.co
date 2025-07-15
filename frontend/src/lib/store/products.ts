@@ -4,8 +4,8 @@ export interface Product {
   id: string;
   name: string;
   description: string;
-  price: string;
-  comparePrice: string;
+  price: number;
+  comparePrice: number;
   features: string[];
 }
 
@@ -22,8 +22,8 @@ const initialProducts: Product[] = [
     id: "blog-automation",
     name: "Blog Otomasyonu",
     description: "Wordpress siteniz için otomatik blog yazıları oluşturun. AI destekli içerik üretimi ve SEO optimizasyonu.",
-    price: "9.99",
-    comparePrice: "19.99",
+    price: 9.99,
+    comparePrice: 19.99,
     features: [
       "AI destekli içerik üretimi",
       "SEO optimizasyonu",
@@ -36,8 +36,8 @@ const initialProducts: Product[] = [
     id: "social-automation",
     name: "İçerik Otomasyonu",
     description: "Sosyal medya hesaplarınız için otomatik içerik üretimi ve paylaşım yönetimi.",
-    price: "19.99",
-    comparePrice: "39.99",
+    price: 19.99,
+    comparePrice: 39.99,
     features: [
       "Çoklu platform desteği",
       "AI destekli içerik üretimi",
@@ -50,8 +50,8 @@ const initialProducts: Product[] = [
     id: "email-automation",
     name: "Email Otomasyonu",
     description: "Email pazarlama kampanyalarınız için otomatik içerik üretimi ve gönderim yönetimi.",
-    price: "14.99",
-    comparePrice: "29.99",
+    price: 14.99,
+    comparePrice: 29.99,
     features: [
       "Kişiselleştirilmiş içerik",
       "A/B testi",
@@ -64,8 +64,8 @@ const initialProducts: Product[] = [
     id: "ecommerce-automation",
     name: "E-ticaret Otomasyonu",
     description: "Online mağazanız için otomatik ürün açıklamaları ve SEO optimizasyonu.",
-    price: "24.99",
-    comparePrice: "49.99",
+    price: 24.99,
+    comparePrice: 49.99,
     features: [
       "Ürün açıklaması üretimi",
       "SEO optimizasyonu",
