@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Automate Your Business - Geleceğin İş Çözümleri",
-  description: "AI tabanlı otomasyon çözümleri ile işinizi geleceğe taşıyın.",
+  description: "AI tabanlı otomasyon çözümleri ile işinizi geleceğe taşıyın."
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.className,
+          inter.className
         )}
       >
         <div className="flex flex-col min-h-screen">

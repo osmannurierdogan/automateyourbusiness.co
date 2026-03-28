@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -11,9 +12,41 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Card } from "@/components/ui/card";
 import { useProductStore } from "@/lib/store/products";
 
+declare global {
+  interface Window {
+    ChatBotSettings: {
+      webhookUrl: string;
+      target: string;
+      mode: string;
+      metadata: Record<string, string>;
+    };
+  }
+}
+
 export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const products = useProductStore((state) => state.products);
+
+  useEffect(() => {
+    // Chatbot CSS'ini yükle
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://n8n.automateyourbusiness.co/chat/assets/chat.css";
+    document.head.appendChild(link);
+
+    // Chatbot ayarlarını window objesine ekle
+    window.ChatBotSettings = {
+      webhookUrl: "https://n8n.automateyourbusiness.co/webhook/4dda904d-57ca-4fcd-9944-26e3ee6b2bc5/chat",
+      target: "#n8n-chat",
+      mode: "window",
+      metadata: { client_id: "automateyourbusiness" },
+    };
+
+    return () => {
+      // Cleanup: CSS linkini kaldır
+      document.head.removeChild(link);
+    };
+  }, []);
 
   const handlePurchase = async (productId: string) => {
     try {
@@ -132,7 +165,15 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      {/* n8n Chatbot */}
+      <div id="n8n-chat"></div>
+      <Script
+        src="https://n8n.automateyourbusiness.co/chat/assets/chat.js"
+        strategy="lazyOnload"
+      />
     </main>
   );
 }
+
 
